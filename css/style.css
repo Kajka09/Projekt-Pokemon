@@ -1,0 +1,99 @@
+body{
+  background:#FFF;
+  background-size: cover;
+}
+
+.btn {
+  color:#000;		
+}
+
+
+#pokedex1, #pokedex2 {
+	background-color: #FB0505;
+	position:absolute;
+	z-index: 1;
+	width: 40%;
+	height: 90%;
+	border-radius: 3%;
+	box-shadow: -8px 7px #5e0000;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%, -50%);
+	
+}
+
+.whiteCircle{
+	background-color: #FFF;
+	z-index: 2;
+	width: 15%;
+	height: 13%;
+	border-radius: 50%;
+	margin-left: 20px;
+	margin-top:20px;
+	position: relative;
+}
+
+.blueCircle {
+	background-color: #05FBFB;
+	z-index: 3;
+	width: 90%;
+	height: 90%;
+	border-radius:50%;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%, -50%);
+	position: absolute;
+	box-shadow:  0 0 20px #509BFB inset;
+}
+
+.greyFrame {
+	background-color: #B0B0B0;
+	z-index: 2;
+	width: 75%;
+	height:71%;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%, -47%);
+	position: absolute;
+	border-radius:1%;
+}
+
+.whiteScreen {
+	background-color: #FFF;
+	z-index: 3;
+	width: 94%;
+	height:94%;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%, -50%);
+	position: absolute;
+	border-radius:1%;
+}
+
+#getPokemons {
+	background-color: #FBFB06;
+	z-index: 2;
+	position:absolute;
+    top: 88%;
+    left: 20%;
+	box-shadow:  0 0 20px #ff6600 inset;
+}
+
+#moreInfo {
+	background-color: #50FB05;
+	z-index: 2;
+	width:25%;
+	height: 9%;
+	border-radius: 2%;
+	position:absolute;
+    transition: .5s ease;
+    top: 88%;
+    left: 50%;
+	box-shadow:  0 0 20px #057A05 inset;
+}
+#pokemonChooser {
+	z-index: 3;
+	margin-left:50%;
+	margin-top:-17%;
+}
+

@@ -1,0 +1,5 @@
+@media (max-width: 600px) {
+  #moreInfo, #getPokemons  {
+    max-width: 100%;
+  }
+}
