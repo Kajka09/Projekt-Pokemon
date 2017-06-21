@@ -16,20 +16,16 @@
 <body>
 	
 	<div id="pokemonChooser">Choose a Pokémon<br />
-		<select id="pokemonSelector"></select>
-		<button id="searchButton">Select</button>
+		<select id="pokeSelector"></select>
+		<button id="pokeSearchButton">Select</button>
 	</div>
 	<div id="pokedex2">
-		<div id="name"></div>
-
-	Type(s): <span id="types"></span><br />
-	National Pokédex #: <span id="national_id"></span><br /><br />
-	<!--Pokedex ID: <span id="pkdx_id"></span><br />-->
 		<table id="stats">
     		<tr>
-				<th>Speed</th><th>Attacks</th><th>Defense</th>
+				<th>Name</th><th>Speed</th><th>Attack</th><th>Defense</th>
     		</tr>
     		<tr>
+       		<td id="name"></td>
         	<td id="speed"></td>
         	<td id="attack"></td>
         	<td id="defense"></td>
@@ -37,7 +33,7 @@
 		</table>
 		<span class="sctTitle">Evolutions</span><div id="evolutions" class="itemContainer"></div><br />
 	</div>
-	
+	<script src="js/jquery-3.1.1.min.js"></script>
 	<!-- AJAX script for second table-->
 	<script src="js/pokedex2.js"></script>
 </body>

@@ -5,7 +5,7 @@ $(document).ready(function() {
     "deferRender": true,
     "paging": true,
     "lengthChange": false,
-    "searching": false,
+    "searching": true,
     "ordering": true,
     "info": true,
     "autoWidth": false,
@@ -37,6 +37,9 @@ $('#getPokemons').click(function(){
 		});
 	}    
 	$('#pokemonTable').show();
+	$('#pokemonTable_info').show();
+	$('#pokemonTable_filter').show();
+	$('#pokemonTable_paginate').show();
 	
 });
 function rotateImage(event) {

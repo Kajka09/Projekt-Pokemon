@@ -49,8 +49,17 @@ a #moreInfo {
   max-width: 800px;
   width: 100%;
 }
-#pokemonTable {
+#pokemonTable, #pokemonTable_info, #pokemonTable_paginate, #pokemonTable_filter {
 	display:none;
+	font-size:1.5em;
+	font-family: 'Orbitron', sans-serif;
+	color:#343a45;
+}
+
+input:focus
+{
+	background-color:#343a45;
+	color: white;
 }
 
 #tableHeader {	
