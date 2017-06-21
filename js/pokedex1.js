@@ -1,4 +1,18 @@
 'use strict';
+var myTable;
+$(document).ready(function() {
+  myTable = $("#pokemonTable").DataTable({
+    "deferRender": true,
+    "paging": true,
+    "lengthChange": false,
+    "searching": false,
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "sDom": 'lfrtip'
+  });
+});
+
 $('#getPokemons').click(function(){
 
 	var random = Math.floor(Math.random()*100);
@@ -17,13 +31,13 @@ $('#getPokemons').click(function(){
 				row.innerHTML = '<td>' + name + '</td>' + '<td>' + '<img id="pokeImage" src ="'+imgUrl+'" />' + '</td>' + '<td>' + hpVal + '</td>';
 				$(document).on("mouseover", "#pokeImage", rotateImage);
 				$(document).on("mouseout", "#pokeImage", reRotateImage);
-				$('#pokemonTable').append(row);
+				myTable.row.add(row);
+				myTable.draw();
 			}
 		});
 	}    
 	$('#pokemonTable').show();
-	  $('#pokemonTable').DataTable(
-       { "lengthMenu": [[5, 10, -1], [5, 10, "All"]] });
+	
 });
 function rotateImage(event) {
 	$(event.target).css('transform', 'rotate(' + 360 + 'deg)');
