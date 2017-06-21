@@ -8,6 +8,7 @@ body{
 	z-index: 1;
 	width: 40%;
 	min-height: 95vh;
+	min-width: 365px;
 	height:auto;
 	left:30%;
 	border-radius:1%;
@@ -15,6 +16,10 @@ body{
 	position: absolute;
 }
 
+.pikachu {
+	position: fixed;
+	bottom:0;
+}
 /* Buttons style- start*/
 .btn:hover {
 	color:#000;
@@ -26,9 +31,10 @@ body{
 	position:absolute;
 	width:20em;
 	height:5em;
-    top: 10%;
-    left: 8%;
+    top: 0%;
+    left: 30%;
 	box-shadow:  0 0 50px #840C0D inset;
+	font-size:700;
 }
 
 a #moreInfo {
@@ -36,33 +42,49 @@ a #moreInfo {
 	width:20em;
 	height:5em;
 	position:absolute;
-    bottom: 10%;
-    right: 8%;
+    top: 0%;
+    right: 30%;
 	box-shadow:  0 0 50px #06009D inset;
+	border: none;
 }
 
 /* Buttons style- finish*/
 /*----------------------*/
 /* Table style - start*/
+table {
+	width: 100%;
+}
+
 #ajaxTable {
   margin: auto;
   max-width: 800px;
   width: 100%;
 }
+
 #pokemonTable, #pokemonTable_info, #pokemonTable_paginate, #pokemonTable_filter {
 	display:none;
 	font-size:1.5em;
-	font-family: 'Orbitron', sans-serif;
 	color:#343a45;
 }
+.paginate_button:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
 
-input:focus
-{
+.pokemonsName {
+	text-transform: capitalize;
+}
+
+input:focus{
 	background-color:#343a45;
 	color: white;
 }
 
-#tableHeader {	
+th {
+	text-align: center;
+}
+
+#tableHeader, #tableHeader2 {	
   color:#D5DDE5;
   background:#1b1e24;
   border-right: 1px solid #343a45;
@@ -74,7 +96,6 @@ tr {
   border-bottom: 1px solid #C1C3D9;
   font-weight:normal;
   text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-
 }
  
 tr:hover td {
@@ -96,7 +117,6 @@ td {
   text-align:center;
   font-size:18px;
   border-right: 1px solid #C1C3D9;
-  width: 100%;
 }
 /* Table style - finish*/
 /*---------------------*/
@@ -115,11 +135,15 @@ td {
     width: 300px;
 }
 
-#searchButton{
+#pokeSearchButton{
     width:10em;
 	height:2em;
 	background-color: #2A71FD;
     box-shadow:  0 0 50px #06009D inset;
 }
 
-
+#evolutions {
+	font-family: 'Orbitron', sans-serif;
+	font-size: large;
+}
+/*Second page style - finish*/

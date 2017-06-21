@@ -5,61 +5,45 @@ var version = "v1";
 var resources = {
     "pokedex":"pokedex",
     "pokemon":"pokemon",
-    "type":"type",
-    "move":"move",
-    "ability":"ability",
-    "egg":"egg",
-    "description":"description",
-    "sprite":"sprite",
-    "game":"game"
 };
 var id = "1";
 var curPokemon = "";
 
 var loading = [];
 
-function main()
-{
-    // enableConsole(400);
+function main(){
     populateSelectorFromApi("/api/v1/pokedex/1/");
     
-    $("#pokeSearchButton").click(function()
-	{
+    $("#pokeSearchButton").click(function(){
         $("#pokedex2").css("display", "block");
         displayPokemonFromApi($("#pokeSelector").val());
         curPokemon = $("#pokeSelector option:selected").text();
         updateSearchButton();
     });
    
-    $("#pokeSelector").change(function()
-    {
+    $("#pokeSelector").change(function(){
         updateSearchButton();
     });
 }
 
-function makeUrl(objects)
-{
-    if (typeof objects !== "object")
-    {
-        var errorMsg = "makeURL only accepts parameters of type 'object', not '" + typeof objects + "'";
-        console.log(errorMsg);
-        throw errorMsg;
+function makeUrl(objects){
+    if (typeof objects !== "object"){
+        var errorMessage = "makeURL only accepts parameters of type 'object', not '" + typeof objects + "'";
+        console.log(errorMessage);
+        throw errorMessage;
     }
-    for (var i = 0; i < objects.length; i++)
-    {
-        if (typeof objects[i] === "undefined")
-        {
-            var errorMsg = "One of array elements makeUrl received was undefined.";
-            console.log(errorMsg);
-            throw errorMsg;
+    for (var i = 0; i < objects.length; i++){
+        if (typeof objects[i] === "undefined"){
+            var errorMessage = "Element not deined";
+            console.log(errorMessage);
+            throw errorMessage;
         }
     }
     
     return objects.join("/");
 }
 
-function clearPokemon()
-{
+function clearPokemon(){
     $("#name").html("");
     $("#attack").html("");
     $("#defense").html("");
@@ -67,35 +51,28 @@ function clearPokemon()
     $("#evolutions").html("");
 }
 
-function displayPokemon(pkmn)
-{
+function displayPokemon(pokemon){
     clearPokemon();
     
-    $("#name").text(pkmn.name);
-    $("#attack").text(pkmn.attack);
-    $("#defense").text(pkmn.defense);
-   	$("#speed").text(pkmn.speed);
-    
-    // NOT POPULATED IN THE API
-    //$("#total").text(pkmn.total);
-    
-    // TODO: make api call
-    for (var i = 0; i < pkmn.descriptions.length; i++)
-        addDescriptionFromApi(pkmn.descriptions[i].resource_uri);
-    // TODO: make api call
-    for (var i = 0; i < pkmn.evolutions.length; i++)
-        $("#evolutions").append($("<div>").text("To: " + pkmn.evolutions[i].to + " Method: " + pkmn.evolutions[i].method));
+    $("#name").text(pokemon.name);
+    $("#attack").text(pokemon.attack);
+    $("#defense").text(pokemon.defense);
+   	$("#speed").text(pokemon.speed);
+
+    for (var i = 0; i < pokemon.descriptions.length; i++)
+        addDescriptionFromApi(pokemon.descriptions[i].resource_uri);
+  
+    for (var i = 0; i < pokemon.evolutions.length; i++)
+        $("#evolutions").append($("<div>").text("To: " + pokemon.evolutions[i].to + " Method: " + pokemon.evolutions[i].method));
 	loadingComplete("pokemon");
 }
 
-function displayPokemonFromApi(uri)
-{
+function displayPokemonFromApi(uri){
     startLoading("pokemon");
     $.getJSON(baseUrl + uri, function(data){displayPokemon(data);});
 }
 
-function addDescription(descrip)
-{
+function addDescription(descrip){
     //*
     var games = [];
     var itemText = "";
@@ -112,14 +89,12 @@ function addDescription(descrip)
     loadingComplete("description");
 }
 
-function addDescriptionFromApi(uri)
-{
+function addDescriptionFromApi(uri){
     startLoading("description");
     $.getJSON(baseUrl + uri, function(data){addDescription(data);});
 }
 
-function populateSelector(pokedex)
-{
+function populateSelector(pokedex){
     // Sort the pokemon names alphabetically since they come in in no
     // particular order in the API, and there is no number associated
     // with each entry.
@@ -136,21 +111,18 @@ function populateSelector(pokedex)
     loadingComplete("pokedex");
 }
 
-function populateSelectorFromApi(uri)
-{
+function populateSelectorFromApi(uri){
     startLoading("pokedex");
     $.getJSON(baseUrl + uri, function(data){populateSelector(data);});
 }
 
-function startLoading(item)
-{
+function startLoading(item){
     loading.push(item);
     $("#pokeSearchButton").text("Loading...");
     updateSearchButton();
 }
 
-function loadingComplete(item)
-{
+function loadingComplete(item){
     var i = loading.indexOf(item);
     if (i != -1)
         loading.splice(i, 1);
@@ -161,8 +133,7 @@ function loadingComplete(item)
     }
 }
 
-function updateSearchButton()
-{
+function updateSearchButton(){
     if (loading.length !== 0
         || $("#pokeSelector option:selected").text() === curPokemon)
     	$("#pokeSearchButton").prop("disabled", true);
