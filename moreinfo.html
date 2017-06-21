@@ -4,6 +4,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Pokemon cheatsheet - more info</title>
+	
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<!--Bootstrap styles -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!--Main styles -->
@@ -16,7 +19,24 @@
 		<select id="pokemonSelector"></select>
 		<button id="searchButton">Select</button>
 	</div>
-	
+	<div id="pokedex2">
+		<div id="name"></div>
+
+	Type(s): <span id="types"></span><br />
+	National Pokédex #: <span id="national_id"></span><br /><br />
+	<!--Pokedex ID: <span id="pkdx_id"></span><br />-->
+		<table id="stats">
+    		<tr>
+				<th>Speed</th><th>Attacks</th><th>Defense</th>
+    		</tr>
+    		<tr>
+        	<td id="speed"></td>
+        	<td id="attack"></td>
+        	<td id="defense"></td>
+			</tr>
+		</table>
+		<span class="sctTitle">Evolutions</span><div id="evolutions" class="itemContainer"></div><br />
+	</div>
 	
 	<!-- AJAX script for second table-->
 	<script src="js/pokedex2.js"></script>

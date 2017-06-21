@@ -1,13 +1,5 @@
 'use strict';
 $('#getPokemons').click(function(){
-	var table = document.createElement('table');
-	table.className = "table table-condensed";
-	table.setAttribute("id", "ajaxTable");
-
-	var header = document.createElement('tr');
-	header.innerHTML = '<th> Name </th><th> Image </th><th> HP </th>';
-	header.setAttribute("id", "tableHeader");
-	table.appendChild(header);
 
 	var random = Math.floor(Math.random()*100);
 	for(var i = random ; i <= random + 10; i++){
@@ -25,14 +17,17 @@ $('#getPokemons').click(function(){
 				row.innerHTML = '<td>' + name + '</td>' + '<td>' + '<img id="pokeImage" src ="'+imgUrl+'" />' + '</td>' + '<td>' + hpVal + '</td>';
 				$(document).on("mouseover", "#pokeImage", rotateImage);
 				$(document).on("mouseout", "#pokeImage", reRotateImage);
-				$('#pokedex1').append(row);
+				$('#pokemonTable').append(row);
 			}
 		});
 	}    
-	$('#pokedex1').append(table);
+	$('#pokemonTable').show();
+	  $('#pokemonTable').DataTable(
+       { "lengthMenu": [[5, 10, -1], [5, 10, "All"]] });
 });
 function rotateImage(event) {
-	$(event.target).css('transform', 'rotate(' + 1000 + 'deg)');
+	$(event.target).css('transform', 'rotate(' + 360 + 'deg)');
+	$(event.target).css('transition-duration', '2s');
 }
 function reRotateImage(event) {
 	$(event.target).css('transform', 'rotate(' + 0 + 'deg)');
